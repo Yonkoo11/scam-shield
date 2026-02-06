@@ -68,9 +68,9 @@ export default function AboutPage() {
           ============================================ */}
       <div className="mb-8">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Powered by Gemini</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Powered by Gemini</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -86,8 +86,8 @@ export default function AboutPage() {
                   <span className="font-display text-sm text-[#4285F4]">50+</span>
                 </div>
                 <div>
-                  <p className="font-bold text-sm text-[#0a0a0a]">Manipulation Tactics</p>
-                  <p className="text-xs text-[#525252]">Detects urgency, threats, authority abuse, and more</p>
+                  <p className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa]">Manipulation Tactics</p>
+                  <p className="text-xs text-[#525252] dark:text-[#a3a3a3]">Detects urgency, threats, authority abuse, and more</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -95,8 +95,8 @@ export default function AboutPage() {
                   <span className="font-display text-sm text-[#9b72cb]">2X</span>
                 </div>
                 <div>
-                  <p className="font-bold text-sm text-[#0a0a0a]">Multimodal Analysis</p>
-                  <p className="text-xs text-[#525252]">Scans both text messages and screenshot images</p>
+                  <p className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa]">Multimodal Analysis</p>
+                  <p className="text-xs text-[#525252] dark:text-[#a3a3a3]">Scans both text messages and screenshot images</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -104,8 +104,8 @@ export default function AboutPage() {
                   <span className="font-display text-sm text-[#d96570]">&lt;3s</span>
                 </div>
                 <div>
-                  <p className="font-bold text-sm text-[#0a0a0a]">Instant Processing</p>
-                  <p className="text-xs text-[#525252]">Results in under 3 seconds via Gemini 2.0 Flash</p>
+                  <p className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa]">Instant Processing</p>
+                  <p className="text-xs text-[#525252] dark:text-[#a3a3a3]">Results in under 3 seconds via Gemini 2.0 Flash</p>
                 </div>
               </div>
             </div>
@@ -121,32 +121,32 @@ export default function AboutPage() {
           ============================================ */}
       <div className="mb-8">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Your Privacy</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Your Privacy</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="grid grid-cols-3 gap-3">
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
-            <div className="w-12 h-12 bg-[#0a0a0a] flex items-center justify-center mx-auto mb-3">
-              <Lock className="w-6 h-6 text-[#facc15]" />
+            <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
+              <Lock className="w-6 h-6 text-[#facc15] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] mb-1">NO DATA STORED</p>
-            <p className="text-[10px] text-[#525252] leading-tight">Messages analyzed in real-time, never saved to any database</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">NO DATA STORED</p>
+            <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Messages analyzed in real-time, never saved to any database</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
-            <div className="w-12 h-12 bg-[#0a0a0a] flex items-center justify-center mx-auto mb-3">
-              <Shield className="w-6 h-6 text-[#22c55e]" />
+            <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
+              <Shield className="w-6 h-6 text-[#22c55e] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] mb-1">100% PRIVATE</p>
-            <p className="text-[10px] text-[#525252] leading-tight">No tracking, no cookies, no account required</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">100% PRIVATE</p>
+            <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">No tracking, no cookies, no account required</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
-            <div className="w-12 h-12 bg-[#0a0a0a] flex items-center justify-center mx-auto mb-3">
-              <Zap className="w-6 h-6 text-[#ef4444]" />
+            <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
+              <Zap className="w-6 h-6 text-[#ef4444] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] mb-1">INSTANT</p>
-            <p className="text-[10px] text-[#525252] leading-tight">Powered by Gemini 2.0 Flash for sub-3-second results</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">INSTANT</p>
+            <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Powered by Gemini 2.0 Flash for sub-3-second results</p>
           </div>
         </div>
       </div>
@@ -156,9 +156,9 @@ export default function AboutPage() {
           ============================================ */}
       <div className="mb-8">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Built With</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Built With</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -167,7 +167,7 @@ export default function AboutPage() {
             return (
               <div key={tech.name} className="brutal-card p-3 text-center hover-tilt brutal-shadow-sm">
                 <Icon className="w-6 h-6 mx-auto mb-1" style={{ color: tech.color }} />
-                <p className="text-[10px] font-bold text-[#525252] uppercase">{tech.name}</p>
+                <p className="text-[10px] font-bold text-[#525252] dark:text-[#a3a3a3] uppercase">{tech.name}</p>
               </div>
             );
           })}
@@ -221,7 +221,7 @@ export default function AboutPage() {
         </Link>
         <Link href="/learn" className="brutal-card brutal-card-yellow p-5 text-center group brutal-shadow-sm">
           <Brain className="w-6 h-6 text-[#0a0a0a] mx-auto mb-2" />
-          <p className="font-display text-lg text-[#0a0a0a] mb-1">TAKE THE QUIZ</p>
+          <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">TAKE THE QUIZ</p>
           <p className="text-[10px] text-[#0a0a0a]/60 mb-2">Test your scam IQ</p>
           <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] group-hover:translate-x-1 transition-transform" />
         </Link>

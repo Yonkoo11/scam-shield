@@ -10,13 +10,13 @@ interface PageHeaderProps {
 export function PageHeader({ icon: Icon, title, subtitle, badge }: PageHeaderProps) {
   return (
     <div className="text-center mb-8">
-      <div className="inline-flex items-center justify-center w-16 h-16 bg-[#facc15] border-4 border-[#0a0a0a] mb-4 animate-scale-in">
+      <div className="inline-flex items-center justify-center w-16 h-16 bg-[#facc15] border-4 border-[#0a0a0a] dark:border-[#facc15] mb-4 animate-scale-in">
         <Icon className="w-8 h-8 text-[#0a0a0a]" />
       </div>
-      <h1 className="font-display text-5xl md:text-6xl text-[#0a0a0a] tracking-tight mb-2 animate-slide-in-left">
+      <h1 className="font-display text-5xl md:text-6xl text-[#0a0a0a] dark:text-[#fafafa] tracking-tight mb-2 animate-slide-in-left">
         {title}
       </h1>
-      <p className="text-lg text-[#525252] max-w-md mx-auto animate-slide-in-left stagger-1">
+      <p className="text-lg text-[#525252] dark:text-[#a3a3a3] max-w-md mx-auto animate-slide-in-left stagger-1">
         {subtitle}
       </p>
       {badge && (

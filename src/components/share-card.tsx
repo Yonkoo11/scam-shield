@@ -89,11 +89,11 @@ Don't get scammed! Check suspicious messages at ScamShield.app
             <p className="font-display text-3xl" style={{ color: config.color }}>
               {config.label}
             </p>
-            <p className="text-sm text-[#525252] mt-1">
+            <p className="text-sm text-[#525252] dark:text-[#525252] mt-1">
               {analysis.confidence}% confidence
             </p>
             {analysis.scamType && (
-              <p className="text-xs font-bold text-[#0a0a0a] mt-2 uppercase tracking-wide">
+              <p className="text-xs font-bold text-[#0a0a0a] dark:text-[#0a0a0a] mt-2 uppercase tracking-wide">
                 {analysis.scamType}
               </p>
             )}
@@ -121,7 +121,7 @@ Don't get scammed! Check suspicious messages at ScamShield.app
       {/* Expanded share options */}
       {showShareOptions && (
         <div className="brutal-card p-4 space-y-3 animate-scale-in">
-          <p className="text-xs uppercase tracking-wider text-[#525252] font-bold">Share via</p>
+          <p className="text-xs uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-bold">Share via</p>
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={handleTwitterShare}

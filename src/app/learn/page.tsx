@@ -40,9 +40,9 @@ export default function LearnPage() {
           ============================================ */}
       <div className="mb-10">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Test Your Skills</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Test Your Skills</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
         <ScamQuiz />
       </div>
@@ -52,9 +52,9 @@ export default function LearnPage() {
           ============================================ */}
       <div className="mb-10" id="types">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Know Your Enemy</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Know Your Enemy</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -68,13 +68,13 @@ export default function LearnPage() {
                 <span className="text-2xl flex-shrink-0">{scam.emoji}</span>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <p className="font-display text-lg text-[#0a0a0a] leading-tight">{scam.name}</p>
+                    <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] leading-tight">{scam.name}</p>
                     <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
                       scam.severity === "critical" ? "bg-[#ef4444]" :
                       scam.severity === "high" ? "bg-[#f97316]" : "bg-[#facc15]"
                     }`} />
                   </div>
-                  <p className="text-xs text-[#525252] leading-relaxed">{scam.desc}</p>
+                  <p className="text-xs text-[#525252] dark:text-[#a3a3a3] leading-relaxed">{scam.desc}</p>
                 </div>
               </div>
             </div>
@@ -94,9 +94,9 @@ export default function LearnPage() {
         </Link>
         <Link href="/trends" className="brutal-card p-5 text-center group brutal-shadow-sm">
           <AlertTriangle className="w-6 h-6 text-[#ef4444] mx-auto mb-2" />
-          <p className="font-display text-lg text-[#0a0a0a] mb-1">LIVE THREATS</p>
-          <p className="text-[10px] text-[#525252] mb-2">See what&apos;s trending</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] group-hover:translate-x-1 transition-transform" />
+          <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">LIVE THREATS</p>
+          <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] mb-2">See what&apos;s trending</p>
+          <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] dark:text-[#facc15] group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
     </div>

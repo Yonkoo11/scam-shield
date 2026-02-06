@@ -245,7 +245,7 @@ export function Analyzer() {
 
         <div className="relative flex flex-col items-center justify-center space-y-6">
           <div className="relative">
-            <Shield className="w-24 h-24 text-[#0a0a0a] animate-pulse" strokeWidth={1} />
+            <Shield className="w-24 h-24 text-[#0a0a0a] dark:text-[#fafafa] animate-pulse" strokeWidth={1} />
             <div className="absolute inset-0 flex items-center justify-center">
               <Search className="w-12 h-12 text-[#facc15]" />
             </div>
@@ -254,8 +254,8 @@ export function Analyzer() {
           </div>
 
           <div className="text-center space-y-2">
-            <h3 className="font-display text-4xl text-[#0a0a0a] tracking-wide">SCANNING</h3>
-            <p className="text-sm text-[#525252] uppercase tracking-widest font-medium">
+            <h3 className="font-display text-4xl text-[#0a0a0a] dark:text-[#fafafa] tracking-wide">SCANNING</h3>
+            <p className="text-sm text-[#525252] dark:text-[#a3a3a3] uppercase tracking-widest font-medium">
               {scanProgress < 30 && "Analyzing patterns..."}
               {scanProgress >= 30 && scanProgress < 60 && "Checking threat database..."}
               {scanProgress >= 60 && scanProgress < 90 && "Detecting manipulation tactics..."}
@@ -264,7 +264,7 @@ export function Analyzer() {
           </div>
 
           <div className="w-full max-w-sm">
-            <div className="h-4 bg-[#e5e5e5] border-4 border-[#0a0a0a] brutal-shadow-sm overflow-hidden">
+            <div className="h-4 bg-[#e5e5e5] dark:bg-[#333] border-4 border-[#0a0a0a] dark:border-[#555] brutal-shadow-sm overflow-hidden">
               <div
                 className="h-full bg-[#facc15] transition-[width] duration-300 ease-out relative"
                 style={{ width: `${scanProgress}%` }}
@@ -272,7 +272,7 @@ export function Analyzer() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
               </div>
             </div>
-            <p className="text-sm text-[#0a0a0a] text-center mt-3 font-display text-xl">{Math.round(scanProgress)}%</p>
+            <p className="text-sm text-[#0a0a0a] dark:text-[#fafafa] text-center mt-3 font-display text-xl">{Math.round(scanProgress)}%</p>
           </div>
         </div>
       </div>
@@ -284,7 +284,7 @@ export function Analyzer() {
       {/* Input Card - Enhanced with layered depth */}
       <div className="brutal-card p-6 relative brutal-shadow animate-scale-in">
         {/* Corner accent */}
-        <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#facc15] border-4 border-[#0a0a0a]" />
+        <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#facc15] border-4 border-[#0a0a0a] dark:border-[#facc15]" />
 
         {/* Floating label */}
         <div className="absolute -top-4 left-4 brutal-label brutal-label-yellow brutal-shadow-sm">
@@ -321,26 +321,26 @@ export function Analyzer() {
         {activeTab === "text" ? (
           <Textarea
             placeholder="PASTE THE SUSPICIOUS MESSAGE HERE..."
-            className="brutal-input min-h-[160px] resize-none text-[#0a0a0a] placeholder:text-[#525252] placeholder:font-medium"
+            className="brutal-input min-h-[160px] resize-none text-[#0a0a0a] dark:text-[#fafafa] placeholder:text-[#525252] dark:placeholder:text-[#666] placeholder:font-medium"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
         ) : (
           <label
             htmlFor="image-upload"
-            className="flex flex-col items-center justify-center w-full min-h-[160px] border-4 border-dashed border-[#0a0a0a] cursor-pointer hover:bg-[#facc15]/20 transition-colors duration-200 brutal-card"
+            className="flex flex-col items-center justify-center w-full min-h-[160px] border-4 border-dashed border-[#0a0a0a] dark:border-[#333] cursor-pointer hover:bg-[#facc15]/20 transition-colors duration-200 brutal-card"
           >
             {imageData ? (
               <div className="text-center p-4">
                 <div className="text-5xl mb-2">✓</div>
-                <p className="font-bold text-[#0a0a0a]">{imageName}</p>
-                <p className="text-sm text-[#525252]">Click to change</p>
+                <p className="font-bold text-[#0a0a0a] dark:text-[#fafafa]">{imageName}</p>
+                <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">Click to change</p>
               </div>
             ) : (
               <div className="text-center p-4">
                 <div className="text-5xl mb-2 grayscale">📷</div>
-                <p className="font-bold text-[#0a0a0a]">Upload Screenshot</p>
-                <p className="text-sm text-[#525252]">
+                <p className="font-bold text-[#0a0a0a] dark:text-[#fafafa]">Upload Screenshot</p>
+                <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">
                   Drag & drop or click to upload
                 </p>
               </div>
@@ -385,7 +385,7 @@ export function Analyzer() {
       {/* Example buttons - Enhanced grid */}
       <div className="space-y-4">
         <div className="brutal-divider" />
-        <p className="text-xs uppercase tracking-widest text-[#525252] font-bold flex items-center gap-2">
+        <p className="text-xs uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] font-bold flex items-center gap-2">
           <span className="w-2 h-2 bg-[#facc15]" />
           Try a real scam example
         </p>

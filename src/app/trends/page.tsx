@@ -74,9 +74,9 @@ export default function TrendsPage() {
           ============================================ */}
       <div className="mb-8">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">6-Month Trend</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">6-Month Trend</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="brutal-card brutal-card-dark p-5 brutal-shadow">
@@ -103,9 +103,9 @@ export default function TrendsPage() {
           ============================================ */}
       <div className="mb-8">
         <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] uppercase">Protect Yourself</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a]" />
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
+          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Protect Yourself</span>
+          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
         </div>
 
         <div className="space-y-3">
@@ -115,14 +115,14 @@ export default function TrendsPage() {
                 <span className="text-xl">{tip.icon}</span>
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" style={{ color: tip.color }} />
-                  <p className="font-bold text-sm text-[#0a0a0a]">{tip.title}</p>
+                  <p className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa]">{tip.title}</p>
                 </div>
               </div>
               <div className="space-y-2 pl-8">
                 {tip.tips.map((t, i) => (
                   <div key={i} className="flex items-start gap-2 text-sm">
                     <ShieldCheck className="w-4 h-4 text-[#22c55e] flex-shrink-0 mt-0.5" />
-                    <span className="text-[#525252]">{t}</span>
+                    <span className="text-[#525252] dark:text-[#a3a3a3]">{t}</span>
                   </div>
                 ))}
               </div>

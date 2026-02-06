@@ -32,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.classList.add('dark')}}catch(e){}})()` }} />
+      </head>
       <body className={`${dmSans.variable} ${bebasNeue.variable} font-sans`}>
         <main className="min-h-screen bg-mesh noise-overlay dot-pattern relative">
           {/* Animated warning stripes header */}
@@ -45,7 +48,7 @@ export default function RootLayout({
           <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
             <div className="absolute top-20 -left-20 w-64 h-64 bg-[#facc15] opacity-10 rotate-12 animate-float" />
             <div className="absolute top-1/2 -right-32 w-96 h-96 bg-[#ef4444] opacity-5 -rotate-12 animate-float stagger-2" />
-            <div className="absolute bottom-20 left-1/4 w-48 h-48 bg-[#0a0a0a] opacity-5 rotate-45 animate-float stagger-3" />
+            <div className="absolute bottom-20 left-1/4 w-48 h-48 bg-[#0a0a0a] dark:bg-[#facc15] opacity-5 rotate-45 animate-float stagger-3" />
           </div>
 
           {/* Page content */}

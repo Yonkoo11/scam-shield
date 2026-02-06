@@ -25,20 +25,20 @@ export function ScamTrends() {
           <AlertTriangle className="w-3 h-3" />
           TRENDING SCAMS
         </div>
-        <span className="text-[10px] text-[#525252] uppercase tracking-wider">This Week</span>
+        <span className="text-[10px] text-[#525252] dark:text-[#a3a3a3] uppercase tracking-wider">This Week</span>
       </div>
 
       <div className="space-y-3">
         {TRENDS.map((trend, i) => (
           <div
             key={trend.name}
-            className="flex items-center gap-3 p-2 hover:bg-[#f5f5f5] transition-colors"
+            className="flex items-center gap-3 p-2 hover:bg-[#f5f5f5] dark:hover:bg-[#1a1a1a] transition-colors"
           >
-            <span className="font-display text-lg text-[#525252] w-6">{i + 1}</span>
+            <span className="font-display text-lg text-[#525252] dark:text-[#a3a3a3] w-6">{i + 1}</span>
 
             <div className="flex-1 min-w-0">
-              <p className="font-bold text-sm text-[#0a0a0a] truncate">{trend.name}</p>
-              <p className="text-[10px] text-[#525252]">{trend.reports} reports</p>
+              <p className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa] truncate">{trend.name}</p>
+              <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3]">{trend.reports} reports</p>
             </div>
 
             <div
@@ -73,8 +73,8 @@ export function ScamTrends() {
         ))}
       </div>
 
-      <div className="mt-4 pt-3 border-t-2 border-[#0a0a0a]/10">
-        <p className="text-[10px] text-[#525252] text-center">
+      <div className="mt-4 pt-3 border-t-2 border-[#0a0a0a]/10 dark:border-white/10">
+        <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] text-center">
           Data from FTC Consumer Sentinel Network
         </p>
       </div>

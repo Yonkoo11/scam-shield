@@ -25,7 +25,7 @@ export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
             <Target className="w-3 h-3" />
             TYPE
           </div>
-          <p className="font-display text-2xl text-[#0a0a0a] mt-2">{analysis.scamType}</p>
+          <p className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mt-2">{analysis.scamType}</p>
         </div>
       )}
 
@@ -35,7 +35,7 @@ export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
           <Shield className="w-3 h-3" />
           ANALYSIS
         </div>
-        <p className="text-[#525252] leading-relaxed mt-2">{analysis.explanation}</p>
+        <p className="text-[#525252] dark:text-[#a3a3a3] leading-relaxed mt-2">{analysis.explanation}</p>
       </div>
 
       {/* Tactics */}
@@ -48,9 +48,9 @@ export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
           <div className="space-y-4 mt-2">
             {analysis.tactics.map((tactic, i) => (
               <div key={i} className="border-l-4 border-[#facc15] pl-4">
-                <p className="font-bold text-[#0a0a0a]">{tactic.name}</p>
-                <p className="text-sm text-[#525252] mb-2">{tactic.description}</p>
-                <p className="text-sm bg-[#f5f5f5] p-2 text-[#525252] italic border-2 border-[#e5e5e5]">&quot;{tactic.evidence}&quot;</p>
+                <p className="font-bold text-[#0a0a0a] dark:text-[#fafafa]">{tactic.name}</p>
+                <p className="text-sm text-[#525252] dark:text-[#a3a3a3] mb-2">{tactic.description}</p>
+                <p className="text-sm bg-[#f5f5f5] dark:bg-[#1a1a1a] p-2 text-[#525252] dark:text-[#a3a3a3] italic border-2 border-[#e5e5e5] dark:border-[#333]">&quot;{tactic.evidence}&quot;</p>
               </div>
             ))}
           </div>
@@ -68,7 +68,7 @@ export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
             {analysis.redFlags.map((flag, i) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="w-2 h-2 bg-[#ef4444] mt-2 flex-shrink-0" />
-                <span className="text-[#525252]">{flag}</span>
+                <span className="text-[#525252] dark:text-[#a3a3a3]">{flag}</span>
               </li>
             ))}
           </ul>
@@ -85,7 +85,7 @@ export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
           {analysis.recommendedActions.map((action, i) => (
             <li key={i} className="flex items-start gap-2">
               <span className="text-[#22c55e] font-bold mt-0.5">→</span>
-              <span className="text-[#0a0a0a] font-medium">{action}</span>
+              <span className="text-[#0a0a0a] dark:text-[#fafafa] font-medium">{action}</span>
             </li>
           ))}
         </ul>

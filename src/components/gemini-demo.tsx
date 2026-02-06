@@ -38,10 +38,10 @@ export function GeminiDemo() {
         value={text}
         onChange={(e) => setText(e.target.value.slice(0, 200))}
         maxLength={200}
-        className="w-full h-24 p-3 bg-[#f5f5f5] border-2 border-[#0a0a0a] text-sm font-body resize-none focus:bg-[#facc15]/20 focus:outline-none transition-colors"
+        className="w-full h-24 p-3 bg-[#f5f5f5] dark:bg-[#1a1a1a] border-2 border-[#0a0a0a] dark:border-[#333] text-sm font-body text-[#0a0a0a] dark:text-[#fafafa] resize-none focus:bg-[#facc15]/20 focus:outline-none transition-colors"
         placeholder="Type a suspicious message..."
       />
-      <p className="text-[10px] text-[#525252] text-right mt-1">{text.length}/200</p>
+      <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] text-right mt-1">{text.length}/200</p>
 
       {/* Results */}
       {totalFlags > 0 ? (

@@ -77,7 +77,7 @@ export function CommunityShield() {
             <TrendingUp className="w-3 h-3" />
             LIVE REPORTS
           </div>
-          <span className="text-[10px] text-[#525252] uppercase tracking-wider flex items-center gap-1">
+          <span className="text-[10px] text-[#525252] dark:text-[#a3a3a3] uppercase tracking-wider flex items-center gap-1">
             <span className="w-2 h-2 bg-[#22c55e] rounded-full animate-pulse" />
             Real-time
           </span>
@@ -87,20 +87,20 @@ export function CommunityShield() {
           {reports.map((report, i) => (
             <div
               key={report.id}
-              className={`flex items-start gap-3 p-3 bg-[#f5f5f5] border-l-4 ${
+              className={`flex items-start gap-3 p-3 bg-[#f5f5f5] dark:bg-[#1a1a1a] border-l-4 ${
                 i === 0 ? "border-[#ef4444] animate-pulse" : "border-[#facc15]"
               }`}
             >
               <Flag className="w-4 h-4 text-[#ef4444] flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-bold text-sm text-[#0a0a0a]">{report.type}</span>
+                  <span className="font-bold text-sm text-[#0a0a0a] dark:text-[#fafafa]">{report.type}</span>
                   {i === 0 && (
                     <span className="text-[10px] bg-[#ef4444] text-white px-1.5 py-0.5 font-bold uppercase">New</span>
                   )}
                 </div>
-                <p className="text-xs text-[#525252] truncate">{report.excerpt}</p>
-                <div className="flex items-center gap-3 mt-1 text-[10px] text-[#525252]">
+                <p className="text-xs text-[#525252] dark:text-[#a3a3a3] truncate">{report.excerpt}</p>
+                <div className="flex items-center gap-3 mt-1 text-[10px] text-[#525252] dark:text-[#a3a3a3]">
                   <span className="flex items-center gap-1">
                     <MapPin className="w-3 h-3" />
                     {report.location}
@@ -118,10 +118,10 @@ export function CommunityShield() {
 
       {/* How it works */}
       <div className="brutal-card brutal-card-yellow p-4">
-        <p className="font-bold text-[#0a0a0a] mb-2">How Community Shield Works</p>
-        <ol className="text-sm text-[#525252] space-y-1">
+        <p className="font-bold text-[#0a0a0a] dark:text-[#0a0a0a] mb-2">How Community Shield Works</p>
+        <ol className="text-sm text-[#525252] dark:text-[#0a0a0a]/70 space-y-1">
           <li className="flex items-start gap-2">
-            <span className="font-bold text-[#0a0a0a]">1.</span>
+            <span className="font-bold text-[#0a0a0a] dark:text-[#0a0a0a]">1.</span>
             You scan a suspicious message
           </li>
           <li className="flex items-start gap-2">

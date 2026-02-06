@@ -125,8 +125,8 @@ export function ScamQuiz() {
     return (
       <div className="brutal-card p-8 text-center brutal-shadow-lg animate-scale-in">
         <div className="text-6xl mb-4">{scoreMsg.emoji}</div>
-        <h3 className="font-display text-4xl text-[#0a0a0a] mb-2">{scoreMsg.title}</h3>
-        <p className="text-[#525252] mb-4">{scoreMsg.subtitle}</p>
+        <h3 className="font-display text-4xl text-[#0a0a0a] dark:text-[#fafafa] mb-2">{scoreMsg.title}</h3>
+        <p className="text-[#525252] dark:text-[#a3a3a3] mb-4">{scoreMsg.subtitle}</p>
 
         <div className="brutal-card brutal-card-dark p-6 mb-6">
           <p className="font-display text-5xl text-[#facc15]">{score}/{QUIZ_QUESTIONS.length}</p>
@@ -169,7 +169,7 @@ export function ScamQuiz() {
           SCAM QUIZ
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-sm font-bold text-[#525252]">
+          <span className="text-sm font-bold text-[#525252] dark:text-[#a3a3a3]">
             {currentQuestion + 1}/{QUIZ_QUESTIONS.length}
           </span>
           <span className="brutal-label brutal-label-black">
@@ -181,8 +181,8 @@ export function ScamQuiz() {
 
       {/* Question */}
       <div className="brutal-card p-4 brutal-shadow">
-        <p className="font-display text-xl text-[#0a0a0a] mb-2">WHICH ONE IS THE SCAM?</p>
-        <p className="text-sm text-[#525252]">Tap the message you think is a scam attempt</p>
+        <p className="font-display text-xl text-[#0a0a0a] dark:text-[#fafafa] mb-2">WHICH ONE IS THE SCAM?</p>
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">Tap the message you think is a scam attempt</p>
       </div>
 
       {/* Options */}
@@ -204,11 +204,11 @@ export function ScamQuiz() {
                 {scamOnLeft ? <X className="w-4 h-4 text-white" /> : <Check className="w-4 h-4 text-white" />}
               </div>
             )}
-            <p className="text-sm text-[#0a0a0a] whitespace-pre-wrap">{leftMessage}</p>
+            <p className="text-sm text-[#0a0a0a] dark:text-[#fafafa] whitespace-pre-wrap">{leftMessage}</p>
           </div>
         </button>
 
-        <div className="text-center text-xs font-bold text-[#525252] uppercase tracking-wider">or</div>
+        <div className="text-center text-xs font-bold text-[#525252] dark:text-[#a3a3a3] uppercase tracking-wider">or</div>
 
         <button
           onClick={() => !showResult && handleSelect("right")}
@@ -227,7 +227,7 @@ export function ScamQuiz() {
                 {!scamOnLeft ? <X className="w-4 h-4 text-white" /> : <Check className="w-4 h-4 text-white" />}
               </div>
             )}
-            <p className="text-sm text-[#0a0a0a] whitespace-pre-wrap">{rightMessage}</p>
+            <p className="text-sm text-[#0a0a0a] dark:text-[#fafafa] whitespace-pre-wrap">{rightMessage}</p>
           </div>
         </button>
       </div>
@@ -235,8 +235,8 @@ export function ScamQuiz() {
       {/* Explanation */}
       {showExplanation && (
         <div className="brutal-card brutal-card-yellow p-4 animate-scale-in">
-          <p className="font-bold text-[#0a0a0a] mb-1">{question.scamType}</p>
-          <p className="text-sm text-[#525252]">{question.explanation}</p>
+          <p className="font-bold text-[#0a0a0a] dark:text-[#0a0a0a] mb-1">{question.scamType}</p>
+          <p className="text-sm text-[#525252] dark:text-[#0a0a0a]/70">{question.explanation}</p>
         </div>
       )}
 

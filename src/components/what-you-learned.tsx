@@ -67,12 +67,12 @@ export function WhatYouLearned({ scamType, redFlags }: WhatYouLearnedProps) {
       <div className="relative">
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-[#facc15] border-4 border-[#0a0a0a] flex items-center justify-center">
+          <div className="w-12 h-12 bg-[#facc15] border-4 border-[#0a0a0a] dark:border-[#facc15] flex items-center justify-center">
             <Brain className="w-6 h-6 text-[#0a0a0a]" />
           </div>
           <div>
-            <p className="font-display text-xl text-[#0a0a0a]">WHAT YOU LEARNED</p>
-            <p className="text-xs text-[#525252]">You&apos;re now immune to this scam type</p>
+            <p className="font-display text-xl text-[#0a0a0a] dark:text-[#fafafa]">WHAT YOU LEARNED</p>
+            <p className="text-xs text-[#525252] dark:text-[#a3a3a3]">You&apos;re now immune to this scam type</p>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ export function WhatYouLearned({ scamType, redFlags }: WhatYouLearnedProps) {
 
         {/* Key takeaways */}
         <div className="space-y-3 mb-4">
-          <p className="text-xs uppercase tracking-wider text-[#525252] font-bold flex items-center gap-2">
+          <p className="text-xs uppercase tracking-wider text-[#525252] dark:text-[#a3a3a3] font-bold flex items-center gap-2">
             <Lightbulb className="w-3 h-3 text-[#facc15]" />
             Key Red Flags You Can Now Spot
           </p>
@@ -97,7 +97,7 @@ export function WhatYouLearned({ scamType, redFlags }: WhatYouLearnedProps) {
             {redFlags.slice(0, 3).map((flag, i) => (
               <div key={i} className="flex items-start gap-2 text-sm">
                 <ShieldCheck className="w-4 h-4 text-[#22c55e] flex-shrink-0 mt-0.5" />
-                <span className="text-[#0a0a0a]">{flag}</span>
+                <span className="text-[#0a0a0a] dark:text-[#fafafa]">{flag}</span>
               </div>
             ))}
           </div>

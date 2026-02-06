@@ -39,8 +39,8 @@ export function ImmunityTracker({ learnedTypes }: ImmunityTrackerProps) {
           <span className="font-display text-2xl text-[#22c55e]">{immunityPercentage}%</span>
         </div>
 
-        <p className="text-sm text-[#525252] mb-3">
-          You&apos;re now immune to <span className="font-bold text-[#0a0a0a]">{learnedTypes.length}/{ALL_SCAM_TYPES.length}</span> common scam types
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3] mb-3">
+          You&apos;re now immune to <span className="font-bold text-[#0a0a0a] dark:text-[#fafafa]">{learnedTypes.length}/{ALL_SCAM_TYPES.length}</span> common scam types
         </p>
 
         {/* Scam type grid */}
@@ -53,7 +53,7 @@ export function ImmunityTracker({ learnedTypes }: ImmunityTrackerProps) {
                 className={`flex items-center gap-2 text-xs p-2 rounded ${
                   isLearned
                     ? "bg-[#22c55e]/10 text-[#22c55e]"
-                    : "bg-[#f5f5f5] text-[#525252]"
+                    : "bg-[#f5f5f5] dark:bg-[#1a1a1a] text-[#525252] dark:text-[#a3a3a3]"
                 }`}
               >
                 {isLearned ? (

@@ -88,7 +88,7 @@ export function VerdictReveal({ verdict, confidence, onRevealComplete }: Verdict
       <div
         className={cn(
           "absolute inset-0 transition-[background-color] duration-500 ease-out",
-          phase === "scanning" ? "bg-[#fafafa]" : config.bgColor
+          phase === "scanning" ? "bg-[#fafafa] dark:bg-[#0a0a0a]" : config.bgColor
         )}
       />
 
@@ -98,18 +98,18 @@ export function VerdictReveal({ verdict, confidence, onRevealComplete }: Verdict
           <>
             {/* Scanning state */}
             <div className="relative mb-8">
-              <Shield className="w-32 h-32 text-[#0a0a0a]" strokeWidth={1} />
+              <Shield className="w-32 h-32 text-[#0a0a0a] dark:text-[#fafafa]" strokeWidth={1} />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-24 h-1 bg-[#facc15] animate-pulse" />
               </div>
             </div>
-            <p className="font-display text-4xl text-[#0a0a0a] tracking-widest">
+            <p className="font-display text-4xl text-[#0a0a0a] dark:text-[#fafafa] tracking-widest">
               SCANNING
             </p>
             <div className="flex items-center justify-center gap-2 mt-4">
-              <span className="w-3 h-3 bg-[#0a0a0a] animate-pulse" />
-              <span className="w-3 h-3 bg-[#0a0a0a] animate-pulse" style={{ animationDelay: "0.2s" }} />
-              <span className="w-3 h-3 bg-[#0a0a0a] animate-pulse" style={{ animationDelay: "0.4s" }} />
+              <span className="w-3 h-3 bg-[#0a0a0a] dark:bg-[#facc15] animate-pulse" />
+              <span className="w-3 h-3 bg-[#0a0a0a] dark:bg-[#facc15] animate-pulse" style={{ animationDelay: "0.2s" }} />
+              <span className="w-3 h-3 bg-[#0a0a0a] dark:bg-[#facc15] animate-pulse" style={{ animationDelay: "0.4s" }} />
             </div>
           </>
         ) : (
