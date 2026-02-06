@@ -38,3 +38,6 @@ next-env.d.ts
 
 # ai folder (project docs)
 /ai/
+
+# Local Netlify folder
+.netlify

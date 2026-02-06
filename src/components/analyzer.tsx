@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AnalysisResults } from "./analysis-results";
 import { VerdictReveal } from "./verdict-reveal";
 import { ScamAnalysis } from "@/types/analysis";
-import { Shield, Search, Loader2 } from "lucide-react";
+import { Shield, Search, Loader2, Sparkles } from "lucide-react";
 
 // Real viral scam examples that judges will recognize
 const DEMO_EXAMPLES = [
@@ -69,6 +69,33 @@ http://wellsfarg0-secure.com/verify?id=38291
 
 Wells Fargo Fraud Prevention Team
 Case #WF-2024-938271`
+  },
+  {
+    label: "Crypto Scam",
+    emoji: "🪙",
+    text: `🚀 EXCLUSIVE CRYPTO OPPORTUNITY - DON'T MISS OUT! 🚀
+
+Hey! I'm a senior analyst at BlockTrade Capital. Our AI trading bot has been generating 300-500% returns MONTHLY for our private group.
+
+We're opening 50 spots for new members this week only.
+
+Here's how it works:
+1. Deposit minimum 0.5 ETH to our smart contract
+2. Our bot trades automatically 24/7
+3. Withdraw profits anytime (guaranteed minimum 10% daily returns)
+
+Current results from our members:
+- @CryptoKing2024: Turned $2K into $84K in 3 weeks
+- @MoonShot_Lisa: $500 → $31K in 12 days
+- @DiamondHands_99: Quit his job after 1 month
+
+Smart contract address: 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD38
+
+Join our exclusive Telegram: t.me/blocktrade_vip
+
+⚠️ Only 12 spots remaining! Price goes up at midnight!
+
+This is NOT financial advice but seriously, you'd be crazy to miss this.`
   },
   {
     label: "IRS Threat",
@@ -208,36 +235,44 @@ export function Analyzer() {
     return <AnalysisResults analysis={analysis} onReset={handleReset} />;
   }
 
-  // Scanning state
+  // Scanning state - enhanced with layered design
   if (isAnalyzing) {
     return (
-      <div className="border-4 border-[#0a0a0a] bg-white p-8">
-        <div className="flex flex-col items-center justify-center space-y-6">
+      <div className="brutal-card p-8 brutal-shadow-lg relative overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#facc15]/10 to-transparent" />
+        <div className="absolute inset-0 grid-pattern opacity-50" />
+
+        <div className="relative flex flex-col items-center justify-center space-y-6">
           <div className="relative">
-            <Shield className="w-20 h-20 text-[#0a0a0a]" strokeWidth={1.5} />
+            <Shield className="w-24 h-24 text-[#0a0a0a] animate-pulse" strokeWidth={1} />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Search className="w-10 h-10 text-[#facc15] animate-pulse" />
+              <Search className="w-12 h-12 text-[#facc15]" />
             </div>
+            {/* Rotating ring */}
+            <div className="absolute inset-[-8px] border-4 border-dashed border-[#facc15] rounded-full animate-spin" style={{ animationDuration: '3s' }} />
           </div>
 
           <div className="text-center space-y-2">
-            <h3 className="font-display text-3xl text-[#0a0a0a]">SCANNING</h3>
-            <p className="text-sm text-[#525252] uppercase tracking-wide">
+            <h3 className="font-display text-4xl text-[#0a0a0a] tracking-wide">SCANNING</h3>
+            <p className="text-sm text-[#525252] uppercase tracking-widest font-medium">
               {scanProgress < 30 && "Analyzing patterns..."}
-              {scanProgress >= 30 && scanProgress < 60 && "Checking databases..."}
-              {scanProgress >= 60 && scanProgress < 90 && "Detecting tactics..."}
-              {scanProgress >= 90 && "Generating report..."}
+              {scanProgress >= 30 && scanProgress < 60 && "Checking threat database..."}
+              {scanProgress >= 60 && scanProgress < 90 && "Detecting manipulation tactics..."}
+              {scanProgress >= 90 && "Generating threat report..."}
             </p>
           </div>
 
-          <div className="w-full max-w-xs">
-            <div className="h-3 bg-[#e5e5e5] border-2 border-[#0a0a0a]">
+          <div className="w-full max-w-sm">
+            <div className="h-4 bg-[#e5e5e5] border-4 border-[#0a0a0a] brutal-shadow-sm overflow-hidden">
               <div
-                className="h-full bg-[#facc15] transition-[width] duration-300 ease-out"
+                className="h-full bg-[#facc15] transition-[width] duration-300 ease-out relative"
                 style={{ width: `${scanProgress}%` }}
-              />
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+              </div>
             </div>
-            <p className="text-xs text-[#525252] text-center mt-2 font-bold">{Math.round(scanProgress)}%</p>
+            <p className="text-sm text-[#0a0a0a] text-center mt-3 font-display text-xl">{Math.round(scanProgress)}%</p>
           </div>
         </div>
       </div>
@@ -246,21 +281,26 @@ export function Analyzer() {
 
   return (
     <div className="space-y-6">
-      {/* Input Card */}
-      <div className="border-4 border-[#0a0a0a] p-6 bg-white relative">
-        <div className="absolute -top-4 left-4 bg-[#facc15] text-[#0a0a0a] font-display text-lg px-3 py-0.5 tracking-widest">
+      {/* Input Card - Enhanced with layered depth */}
+      <div className="brutal-card p-6 relative brutal-shadow animate-scale-in">
+        {/* Corner accent */}
+        <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#facc15] border-4 border-[#0a0a0a]" />
+
+        {/* Floating label */}
+        <div className="absolute -top-4 left-4 brutal-label brutal-label-yellow brutal-shadow-sm">
+          <Sparkles className="w-3 h-3" />
           PASTE HERE
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 mb-4 mt-2">
+        <div className="flex gap-2 mb-4 mt-4">
           <button
             type="button"
             onClick={() => setActiveTab("text")}
-            className={`px-4 py-2 border-2 border-[#0a0a0a] font-bold text-sm uppercase transition-[background-color,color] duration-150 ${
+            className={`brutal-btn px-4 py-2 text-sm ${
               activeTab === "text"
-                ? "bg-[#0a0a0a] text-white"
-                : "bg-white text-[#0a0a0a] hover:bg-[#f5f5f5]"
+                ? "brutal-btn-dark"
+                : "brutal-btn-secondary"
             }`}
           >
             Text
@@ -268,10 +308,10 @@ export function Analyzer() {
           <button
             type="button"
             onClick={() => setActiveTab("image")}
-            className={`px-4 py-2 border-2 border-[#0a0a0a] font-bold text-sm uppercase transition-[background-color,color] duration-150 ${
+            className={`brutal-btn px-4 py-2 text-sm ${
               activeTab === "image"
-                ? "bg-[#0a0a0a] text-white"
-                : "bg-white text-[#0a0a0a] hover:bg-[#f5f5f5]"
+                ? "brutal-btn-dark"
+                : "brutal-btn-secondary"
             }`}
           >
             Screenshot
@@ -281,24 +321,24 @@ export function Analyzer() {
         {activeTab === "text" ? (
           <Textarea
             placeholder="PASTE THE SUSPICIOUS MESSAGE HERE..."
-            className="min-h-[140px] resize-none border-2 border-[#0a0a0a] bg-[#f5f5f5] text-[#0a0a0a] placeholder:text-[#525252] placeholder:font-medium focus:bg-[#facc15] focus:border-[#0a0a0a] focus:ring-0 font-medium"
+            className="brutal-input min-h-[160px] resize-none text-[#0a0a0a] placeholder:text-[#525252] placeholder:font-medium"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
         ) : (
           <label
             htmlFor="image-upload"
-            className="flex flex-col items-center justify-center w-full min-h-[140px] border-2 border-dashed border-[#0a0a0a] cursor-pointer hover:bg-[#f5f5f5] transition-[background-color] duration-150"
+            className="flex flex-col items-center justify-center w-full min-h-[160px] border-4 border-dashed border-[#0a0a0a] cursor-pointer hover:bg-[#facc15]/20 transition-colors duration-200 brutal-card"
           >
             {imageData ? (
               <div className="text-center p-4">
-                <div className="text-4xl mb-2">✓</div>
+                <div className="text-5xl mb-2">✓</div>
                 <p className="font-bold text-[#0a0a0a]">{imageName}</p>
                 <p className="text-sm text-[#525252]">Click to change</p>
               </div>
             ) : (
               <div className="text-center p-4">
-                <div className="text-4xl mb-2 opacity-50">📷</div>
+                <div className="text-5xl mb-2 grayscale">📷</div>
                 <p className="font-bold text-[#0a0a0a]">Upload Screenshot</p>
                 <p className="text-sm text-[#525252]">
                   Drag & drop or click to upload
@@ -316,11 +356,11 @@ export function Analyzer() {
         )}
       </div>
 
-      {/* CTA Button */}
+      {/* CTA Button - Enhanced with layered shadow */}
       <button
         onClick={handleAnalyze}
         disabled={!canAnalyze || isAnalyzing}
-        className="w-full py-5 px-8 bg-[#ef4444] text-white border-4 border-[#0a0a0a] font-display text-2xl tracking-widest brutal-shadow transition-[transform,box-shadow] duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0_#0a0a0a] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[4px_4px_0_#0a0a0a] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-x-0 disabled:hover:translate-y-0 disabled:hover:shadow-[6px_6px_0_#0a0a0a] flex items-center justify-center gap-3"
+        className="w-full py-5 px-8 brutal-btn brutal-btn-primary brutal-shadow-lg font-display text-2xl tracking-widest flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group"
       >
         {isAnalyzing ? (
           <>
@@ -329,7 +369,7 @@ export function Analyzer() {
           </>
         ) : (
           <>
-            <Search className="w-6 h-6" />
+            <Search className="w-6 h-6 group-hover:animate-pulse" />
             SCAN FOR SCAMS
           </>
         )}
@@ -337,18 +377,20 @@ export function Analyzer() {
 
       {/* Error */}
       {error && (
-        <div className="p-4 bg-[#ef4444] text-white border-4 border-[#0a0a0a] font-bold">
-          {error}
+        <div className="brutal-card brutal-card-dark p-4 border-4 border-[#ef4444] animate-shake">
+          <p className="font-bold text-[#ef4444]">{error}</p>
         </div>
       )}
 
-      {/* Example buttons */}
-      <div className="space-y-3">
-        <p className="text-xs uppercase tracking-widest text-[#525252] font-bold">
-          Try a real scam example:
+      {/* Example buttons - Enhanced grid */}
+      <div className="space-y-4">
+        <div className="brutal-divider" />
+        <p className="text-xs uppercase tracking-widest text-[#525252] font-bold flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          Try a real scam example
         </p>
-        <div className="flex flex-wrap gap-2">
-          {DEMO_EXAMPLES.map((example) => (
+        <div className="grid grid-cols-3 gap-3">
+          {DEMO_EXAMPLES.map((example, i) => (
             <button
               key={example.label}
               type="button"
@@ -356,10 +398,10 @@ export function Analyzer() {
                 setActiveTab("text");
                 setText(example.text);
               }}
-              className="px-3 py-2 border-2 border-[#0a0a0a] bg-white font-bold text-sm hover:bg-[#facc15] transition-[background-color] duration-150"
+              className={`brutal-btn brutal-btn-secondary p-3 text-left hover-tilt animate-scale-in stagger-${i + 1}`}
             >
-              <span className="mr-1">{example.emoji}</span>
-              {example.label}
+              <span className="text-xl mr-2">{example.emoji}</span>
+              <span className="font-bold text-sm">{example.label}</span>
             </button>
           ))}
         </div>

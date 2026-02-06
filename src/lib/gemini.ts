@@ -22,6 +22,7 @@ function getMockAnalysis(content: string): ScamAnalysis {
   const isFakeInvoice = /(order|invoice|charged|purchase)[\s\S]*\$\d+[\s\S]*authorize/i.test(content) || /amazon[\s\S]*charged|paypal[\s\S]*charged/i.test(content);
   const isBankAlert = /(security\s*alert|unusual\s*activity|wire\s*transfer.*attempted|fraud.*hotline)/i.test(content) && /bank|wells\s*fargo|chase|citi/i.test(content);
   const isIRSScam = /irs|internal\s*revenue|tax.*liability|warrant.*pending|arrest.*warrant/i.test(content);
+  const isCryptoScam = /(guaranteed.*returns|send.*eth|deposit.*btc|smart\s*contract.*address|trading\s*bot|300%|500%|10%.*daily|airdrop.*claim|connect.*wallet|seed\s*phrase)/i.test(content) || (/(crypto|bitcoin|ethereum|eth|btc|token|nft|defi)/i.test(content) && /(guaranteed|returns|profit|passive\s*income|exclusive|spots?\s*remaining|moon|100x)/i.test(content));
   const hasFakeDomain = /amaz0n|paypa1|wellsfarg0|app1e|micros0ft|g00gle/i.test(content);
 
   // Detect common scam indicators
@@ -202,6 +203,54 @@ function getMockAnalysis(content: string): ScamAnalysis {
         "Report to FTC at reportfraud.ftc.gov"
       ],
       similarScamsCount: 7291
+    };
+  }
+
+  // Crypto / Investment Scam
+  if (isCryptoScam) {
+    return {
+      verdict: "CONFIRMED_SCAM",
+      confidence: 98,
+      scamType: "Crypto Investment Scam",
+      tactics: [
+        {
+          name: "Guaranteed Returns",
+          description: "Promises impossibly high, risk-free returns to lure victims",
+          evidence: "Claims of 300-500% monthly returns or '10% daily guaranteed profit'"
+        },
+        {
+          name: "Artificial Scarcity",
+          description: "Creates fake urgency with limited spots or countdown timers",
+          evidence: "Claims like 'only 12 spots remaining' or 'price goes up at midnight'"
+        },
+        {
+          name: "Social Proof Fabrication",
+          description: "Uses fake testimonials from non-existent users to build credibility",
+          evidence: "Screenshots of 'member results' showing life-changing gains"
+        },
+        {
+          name: "Irreversible Payment",
+          description: "Requests crypto deposits that cannot be reversed or traced",
+          evidence: "Asks you to send ETH/BTC to a wallet address or smart contract"
+        },
+      ],
+      redFlags: [
+        "No legitimate investment guarantees returns - this violates securities law",
+        "Asking you to deposit crypto to an unknown wallet address",
+        "Fake testimonials with unrealistic gains ($500 to $31K in 12 days)",
+        "Private Telegram groups are where most crypto scams operate",
+        "No registered company, no license, no regulatory oversight",
+        "'Not financial advice' disclaimer while making financial promises"
+      ],
+      explanation: "This is a classic crypto investment scam (also called a 'pig butchering' or rug pull scheme). No legitimate investment offers guaranteed daily returns. Once you send crypto to their wallet, your money is gone forever. These operations steal billions annually.",
+      recommendedActions: [
+        "NEVER send crypto to addresses shared by strangers",
+        "No legitimate investment guarantees fixed returns",
+        "Check SEC.gov EDGAR database for registered investment companies",
+        "Report to FTC and the FBI's IC3 at ic3.gov",
+        "Warn others in your network about this specific scam"
+      ],
+      similarScamsCount: 12847
     };
   }
 
@@ -409,29 +458,25 @@ function getMockAnalysis(content: string): ScamAnalysis {
 }
 
 export async function analyzeText(content: string): Promise<ScamAnalysis> {
-  // Always use mock for now due to network issues - will switch to real API when network is fixed
-  // Set MOCK_API=false in .env.local to try real API
-  const useMock = process.env.MOCK_API !== "false";
+  const useMock = process.env.MOCK_API === "true" || !process.env.GEMINI_API_KEY;
 
   if (useMock) {
-    // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1500));
     return getMockAnalysis(content);
   }
 
   try {
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.0-flash",
       generationConfig: {
         responseMimeType: "application/json",
       },
       systemInstruction: SCAM_ANALYSIS_SYSTEM_PROMPT,
     });
 
-    // 5 second timeout
     const result = await withTimeout(
       model.generateContent(TEXT_ANALYSIS_PROMPT(content)),
-      5000
+      15000
     );
     const response = result.response.text();
 
@@ -443,7 +488,7 @@ export async function analyzeText(content: string): Promise<ScamAnalysis> {
 }
 
 export async function analyzeImage(base64Image: string, mimeType: string): Promise<ScamAnalysis> {
-  const useMock = process.env.MOCK_API !== "false";
+  const useMock = process.env.MOCK_API === "true" || !process.env.GEMINI_API_KEY;
 
   if (useMock) {
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -474,14 +519,13 @@ export async function analyzeImage(base64Image: string, mimeType: string): Promi
 
   try {
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.0-flash",
       generationConfig: {
         responseMimeType: "application/json",
       },
       systemInstruction: SCAM_ANALYSIS_SYSTEM_PROMPT,
     });
 
-    // 10 second timeout for images
     const result = await withTimeout(
       model.generateContent([
         IMAGE_ANALYSIS_PROMPT,
@@ -492,7 +536,7 @@ export async function analyzeImage(base64Image: string, mimeType: string): Promi
           },
         },
       ]),
-      10000
+      20000
     );
 
     const response = result.response.text();

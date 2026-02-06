@@ -8,7 +8,7 @@ Analyze the provided content for scam indicators and manipulation tactics. Be th
 2. Phishing - Impersonating trusted entities to steal credentials
 3. Romance Scam - Building fake relationships to extract money
 4. Tech Support Scam - Fake computer problems requiring remote access or payment
-5. Investment Fraud - Guaranteed returns, Ponzi schemes, crypto scams
+5. Investment/Crypto Fraud - Guaranteed returns, rug pulls, fake trading bots, pig butchering, fake airdrops, seed phrase phishing
 6. Lottery/Prize Scam - Winning something you never entered
 7. Employment Scam - Fake job offers requiring upfront payments
 8. Government Impersonation - Fake IRS, SSA, or law enforcement

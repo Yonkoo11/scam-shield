@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { ScamAnalysis } from "@/types/analysis";
 import { VerdictBadge } from "./verdict-badge";
-import { Check, Share2, AlertTriangle, Target, Flag, ArrowRight, Shield } from "lucide-react";
+import { ShareCard } from "./share-card";
+import { WhatYouLearned } from "./what-you-learned";
+import { ReportScamButton } from "./community-shield";
+import { AlertTriangle, Target, Flag, ArrowRight, Shield } from "lucide-react";
 
 interface AnalysisResultsProps {
   analysis: ScamAnalysis;
@@ -11,51 +13,6 @@ interface AnalysisResultsProps {
 }
 
 export function AnalysisResults({ analysis, onReset }: AnalysisResultsProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleShare = async () => {
-    const shareText = generateShareText(analysis);
-
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'Scam Shield Report',
-          text: shareText,
-          url: window.location.href,
-        });
-      } catch {
-        // User cancelled or share failed, fall back to copy
-        copyToClipboard(shareText);
-      }
-    } else {
-      copyToClipboard(shareText);
-    }
-  };
-
-  const copyToClipboard = async (text: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const generateShareText = (analysis: ScamAnalysis) => {
-    const verdictEmoji = {
-      SAFE: "✅",
-      SUSPICIOUS: "⚠️",
-      HIGH_RISK: "🚨",
-      CONFIRMED_SCAM: "🛑"
-    }[analysis.verdict];
-
-    return `${verdictEmoji} Scam Shield Report
-
-Verdict: ${analysis.verdict.replace('_', ' ')} (${analysis.confidence}% confidence)
-${analysis.scamType ? `Type: ${analysis.scamType}\n` : ''}
-Red Flags:
-${analysis.redFlags.slice(0, 3).map(f => `• ${f}`).join('\n')}
-
-Protect yourself and others. Check suspicious messages at ScamShield.app`;
-  };
-
   return (
     <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Verdict */}
@@ -63,8 +20,8 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
 
       {/* Scam Type */}
       {analysis.scamType && (
-        <div className="border-4 border-[#0a0a0a] bg-white p-4 relative">
-          <div className="absolute -top-3 left-4 bg-[#f97316] text-white font-display text-sm px-2 py-0.5 tracking-widest flex items-center gap-1">
+        <div className="brutal-card p-4 relative brutal-shadow-sm">
+          <div className="absolute -top-3 left-4 brutal-label brutal-label-orange">
             <Target className="w-3 h-3" />
             TYPE
           </div>
@@ -73,8 +30,8 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
       )}
 
       {/* Explanation */}
-      <div className="border-4 border-[#0a0a0a] bg-white p-4 relative">
-        <div className="absolute -top-3 left-4 bg-[#0a0a0a] text-white font-display text-sm px-2 py-0.5 tracking-widest flex items-center gap-1">
+      <div className="brutal-card p-4 relative brutal-shadow-sm">
+        <div className="absolute -top-3 left-4 brutal-label brutal-label-black">
           <Shield className="w-3 h-3" />
           ANALYSIS
         </div>
@@ -83,8 +40,8 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
 
       {/* Tactics */}
       {analysis.tactics.length > 0 && (
-        <div className="border-4 border-[#0a0a0a] bg-white p-4 relative">
-          <div className="absolute -top-3 left-4 bg-[#facc15] text-[#0a0a0a] font-display text-sm px-2 py-0.5 tracking-widest flex items-center gap-1">
+        <div className="brutal-card p-4 relative brutal-shadow-sm">
+          <div className="absolute -top-3 left-4 brutal-label brutal-label-yellow">
             <AlertTriangle className="w-3 h-3" />
             TACTICS FOUND
           </div>
@@ -102,8 +59,8 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
 
       {/* Red Flags */}
       {analysis.redFlags.length > 0 && (
-        <div className="border-4 border-[#0a0a0a] bg-white p-4 relative">
-          <div className="absolute -top-3 left-4 bg-[#ef4444] text-white font-display text-sm px-2 py-0.5 tracking-widest flex items-center gap-1">
+        <div className="brutal-card p-4 relative brutal-shadow-sm">
+          <div className="absolute -top-3 left-4 brutal-label brutal-label-red">
             <Flag className="w-3 h-3" />
             RED FLAGS
           </div>
@@ -119,8 +76,8 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
       )}
 
       {/* Recommended Actions */}
-      <div className="border-4 border-[#0a0a0a] bg-white p-4 relative">
-        <div className="absolute -top-3 left-4 bg-[#22c55e] text-white font-display text-sm px-2 py-0.5 tracking-widest flex items-center gap-1">
+      <div className="brutal-card p-4 relative brutal-shadow-sm">
+        <div className="absolute -top-3 left-4 brutal-label brutal-label-green">
           <ArrowRight className="w-3 h-3" />
           WHAT TO DO
         </div>
@@ -136,39 +93,38 @@ Protect yourself and others. Check suspicious messages at ScamShield.app`;
 
       {/* Similar Scams */}
       {analysis.similarScamsCount > 0 && analysis.verdict !== "SAFE" && (
-        <div className="text-center py-4 px-4 bg-[#0a0a0a] text-white border-4 border-[#facc15]">
-          <p className="text-sm">
-            This matches patterns from <span className="font-display text-xl text-[#facc15]">{analysis.similarScamsCount.toLocaleString()}</span> similar reported scams.
+        <div className="brutal-card brutal-card-dark p-4 border-4 border-[#facc15] text-center">
+          <p className="text-sm text-white">
+            This matches patterns from <span className="font-display text-2xl text-[#facc15]">{analysis.similarScamsCount.toLocaleString()}</span> similar reported scams.
           </p>
         </div>
       )}
 
-      {/* Actions */}
-      <div className="flex gap-3 pt-2">
-        <button
-          onClick={handleShare}
-          className="flex-1 py-4 px-4 bg-white text-[#0a0a0a] border-4 border-[#0a0a0a] font-bold uppercase tracking-wide brutal-shadow-sm transition-[transform,box-shadow] duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#0a0a0a] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0_#0a0a0a] flex items-center justify-center gap-2"
-        >
-          {copied ? (
-            <>
-              <Check className="w-4 h-4" />
-              Copied!
-            </>
-          ) : (
-            <>
-              <Share2 className="w-4 h-4" />
-              Share
-            </>
-          )}
-        </button>
-        <button
-          onClick={onReset}
-          className="flex-1 py-4 px-4 bg-[#0a0a0a] text-white border-4 border-[#0a0a0a] font-bold uppercase tracking-wide brutal-shadow-sm transition-[transform,box-shadow] duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0_#525252] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0_#525252] flex items-center justify-center gap-2"
-        >
-          <Shield className="w-4 h-4" />
-          Scan Another
-        </button>
-      </div>
+      {/* What You Learned - only for scams */}
+      {analysis.scamType && analysis.verdict !== "SAFE" && (
+        <WhatYouLearned
+          scamType={analysis.scamType}
+          tactics={analysis.tactics.map(t => t.name)}
+          redFlags={analysis.redFlags}
+        />
+      )}
+
+      {/* Report to Community */}
+      {analysis.verdict !== "SAFE" && (
+        <ReportScamButton onReport={() => {}} />
+      )}
+
+      {/* Share Card */}
+      <ShareCard analysis={analysis} />
+
+      {/* Scan Another Button */}
+      <button
+        onClick={onReset}
+        className="w-full brutal-btn brutal-btn-dark py-4 flex items-center justify-center gap-2"
+      >
+        <Shield className="w-4 h-4" />
+        Scan Another Message
+      </button>
     </div>
   );
 }
