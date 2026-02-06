@@ -8,8 +8,6 @@ import {
   Lock,
   Zap,
   Sparkles,
-  Brain,
-  ArrowRight,
   Code2,
   Palette,
   FileCode2,
@@ -67,11 +65,10 @@ export default function AboutPage() {
           POWERED BY GEMINI
           ============================================ */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Powered by Gemini</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#4285F4]" />
+          How the AI works
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* How Gemini Works */}
@@ -120,32 +117,32 @@ export default function AboutPage() {
           PRIVACY & TRUST
           ============================================ */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Your Privacy</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <div className="brutal-divider mb-4" />
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#22c55e]" />
+          Your privacy
+        </p>
 
         <div className="grid grid-cols-3 gap-3">
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
               <Lock className="w-6 h-6 text-[#facc15] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">NO DATA STORED</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">No data stored</p>
             <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Messages analyzed in real-time, never saved to any database</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
               <Shield className="w-6 h-6 text-[#22c55e] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">100% PRIVATE</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">100% Private</p>
             <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">No tracking, no cookies, no account required</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-12 h-12 bg-[#0a0a0a] dark:bg-[#facc15] flex items-center justify-center mx-auto mb-3">
               <Zap className="w-6 h-6 text-[#ef4444] dark:text-[#0a0a0a]" />
             </div>
-            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">INSTANT</p>
+            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">Instant</p>
             <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Powered by Gemini 2.0 Flash for sub-3-second results</p>
           </div>
         </div>
@@ -155,11 +152,10 @@ export default function AboutPage() {
           TECH STACK
           ============================================ */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Built With</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          Built with
+        </p>
 
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
           {TECH_STACK.map((tech) => {
@@ -209,22 +205,14 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ============================================
-          CTA SECTION
-          ============================================ */}
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        <Link href="/" className="brutal-card brutal-card-dark p-5 text-center group brutal-shadow-sm">
-          <Shield className="w-6 h-6 text-[#facc15] mx-auto mb-2" />
-          <p className="font-display text-lg text-white mb-1">TRY IT NOW</p>
-          <p className="text-[10px] text-white/60 mb-2">Scan your first message</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#facc15] group-hover:translate-x-1 transition-transform" />
-        </Link>
-        <Link href="/learn" className="brutal-card brutal-card-yellow p-5 text-center group brutal-shadow-sm">
-          <Brain className="w-6 h-6 text-[#0a0a0a] mx-auto mb-2" />
-          <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">TAKE THE QUIZ</p>
-          <p className="text-[10px] text-[#0a0a0a]/60 mb-2">Test your scam IQ</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] group-hover:translate-x-1 transition-transform" />
-        </Link>
+      {/* Links */}
+      <div className="text-center mb-4">
+        <div className="brutal-divider mb-4" />
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">
+          <Link href="/" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Scan a message</Link>
+          {" · "}
+          <Link href="/learn" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Take the quiz</Link>
+        </p>
       </div>
     </div>
   );

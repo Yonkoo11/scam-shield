@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { AnalysisResults } from "./analysis-results";
 import { VerdictReveal } from "./verdict-reveal";
 import { ScamAnalysis } from "@/types/analysis";
-import { Shield, Search, Loader2, Sparkles } from "lucide-react";
+import { Shield, Search, Loader2 } from "lucide-react";
 
 // Real viral scam examples that judges will recognize
 const DEMO_EXAMPLES = [
@@ -245,12 +245,10 @@ export function Analyzer() {
 
         <div className="relative flex flex-col items-center justify-center space-y-6">
           <div className="relative">
-            <Shield className="w-24 h-24 text-[#0a0a0a] dark:text-[#fafafa] animate-pulse" strokeWidth={1} />
+            <Shield className="w-24 h-24 text-[#0a0a0a] dark:text-[#fafafa]" strokeWidth={1} />
             <div className="absolute inset-0 flex items-center justify-center">
               <Search className="w-12 h-12 text-[#facc15]" />
             </div>
-            {/* Rotating ring */}
-            <div className="absolute inset-[-8px] border-4 border-dashed border-[#facc15] rounded-full animate-spin" style={{ animationDuration: '3s' }} />
           </div>
 
           <div className="text-center space-y-2">
@@ -281,19 +279,15 @@ export function Analyzer() {
 
   return (
     <div className="space-y-6">
-      {/* Input Card - Enhanced with layered depth */}
-      <div className="brutal-card p-6 relative brutal-shadow animate-scale-in">
-        {/* Corner accent */}
-        <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#facc15] border-4 border-[#0a0a0a] dark:border-[#facc15]" />
-
-        {/* Floating label */}
-        <div className="absolute -top-4 left-4 brutal-label brutal-label-yellow brutal-shadow-sm">
-          <Sparkles className="w-3 h-3" />
-          PASTE HERE
-        </div>
+      {/* Input Card */}
+      <div className="brutal-card p-6 brutal-shadow animate-scale-in">
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          Paste suspicious message
+        </p>
 
         {/* Tabs */}
-        <div className="flex gap-2 mb-4 mt-4">
+        <div className="flex gap-2 mb-4">
           <button
             type="button"
             onClick={() => setActiveTab("text")}
@@ -370,7 +364,7 @@ export function Analyzer() {
         ) : (
           <>
             <Search className="w-6 h-6 group-hover:animate-pulse" />
-            SCAN FOR SCAMS
+            Scan for Scams
           </>
         )}
       </button>
@@ -389,8 +383,8 @@ export function Analyzer() {
           <span className="w-2 h-2 bg-[#facc15]" />
           Try a real scam example
         </p>
-        <div className="grid grid-cols-3 gap-3">
-          {DEMO_EXAMPLES.map((example, i) => (
+        <div className="flex flex-wrap gap-2">
+          {DEMO_EXAMPLES.map((example) => (
             <button
               key={example.label}
               type="button"
@@ -398,10 +392,10 @@ export function Analyzer() {
                 setActiveTab("text");
                 setText(example.text);
               }}
-              className={`brutal-btn brutal-btn-secondary p-3 text-left hover-tilt animate-scale-in stagger-${i + 1}`}
+              className="brutal-btn brutal-btn-secondary px-3 py-2 text-sm"
             >
-              <span className="text-xl mr-2">{example.emoji}</span>
-              <span className="font-bold text-sm">{example.label}</span>
+              <span className="mr-1.5">{example.emoji}</span>
+              <span className="font-bold">{example.label}</span>
             </button>
           ))}
         </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { ScamQuiz } from "@/components/scam-quiz";
 import { ImmunityTracker } from "@/components/immunity-tracker";
-import { Brain, Shield, ArrowRight, AlertTriangle } from "lucide-react";
+import { Brain } from "lucide-react";
 
 const SCAM_TYPES = [
   { emoji: "👨‍👩‍👧", name: "Family Impersonation", desc: "\"Hi Mom\" texts from unknown numbers exploiting parental instincts to extract emergency money transfers.", severity: "critical" },
@@ -39,11 +39,10 @@ export default function LearnPage() {
           INTERACTIVE QUIZ
           ============================================ */}
       <div className="mb-10">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Test Your Skills</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          Test your skills
+        </p>
         <ScamQuiz />
       </div>
 
@@ -51,11 +50,11 @@ export default function LearnPage() {
           SCAM TYPE ENCYCLOPEDIA
           ============================================ */}
       <div className="mb-10" id="types">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Know Your Enemy</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <div className="brutal-divider mb-4" />
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#ef4444]" />
+          Know your enemy
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {SCAM_TYPES.map((scam, i) => (
@@ -82,22 +81,14 @@ export default function LearnPage() {
         </div>
       </div>
 
-      {/* ============================================
-          CTA SECTION
-          ============================================ */}
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        <Link href="/" className="brutal-card brutal-card-dark p-5 text-center group brutal-shadow-sm">
-          <Shield className="w-6 h-6 text-[#facc15] mx-auto mb-2" />
-          <p className="font-display text-lg text-white mb-1">SCAN NOW</p>
-          <p className="text-[10px] text-white/60 mb-2">Test a real message</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#facc15] group-hover:translate-x-1 transition-transform" />
-        </Link>
-        <Link href="/trends" className="brutal-card p-5 text-center group brutal-shadow-sm">
-          <AlertTriangle className="w-6 h-6 text-[#ef4444] mx-auto mb-2" />
-          <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa] mb-1">LIVE THREATS</p>
-          <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] mb-2">See what&apos;s trending</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] dark:text-[#facc15] group-hover:translate-x-1 transition-transform" />
-        </Link>
+      {/* Links */}
+      <div className="text-center mb-4">
+        <div className="brutal-divider mb-4" />
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">
+          <Link href="/" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Scan a message</Link>
+          {" · "}
+          <Link href="/trends" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">See trends</Link>
+        </p>
       </div>
     </div>
   );

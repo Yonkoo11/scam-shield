@@ -289,42 +289,7 @@
    ANIMATIONS
    ============================================ */
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-2px) rotate(-1deg); }
-  75% { transform: translateX(2px) rotate(1deg); }
-}
-
-.animate-shake {
-  animation: shake 0.5s ease-in-out infinite;
-}
-
-@keyframes flash {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0.3; }
-}
-
-.animate-flash {
-  animation: flash 1s infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes pulse-border {
-  0%, 100% { border-color: var(--brutal-yellow); }
-  50% { border-color: var(--brutal-red); }
-}
-
-.animate-pulse-border {
-  animation: pulse-border 2s ease-in-out infinite;
-}
+/* Removed infinite animations (shake, flash, float, pulse-border) - they signal AI-generated design */
 
 @keyframes slide-in-left {
   from { transform: translateX(-20px); opacity: 0; }

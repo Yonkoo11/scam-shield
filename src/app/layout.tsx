@@ -37,19 +37,12 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){d.classList.add('dark')}}catch(e){}})()` }} />
       </head>
       <body className={`${dmSans.variable} ${bebasNeue.variable} font-sans`}>
-        <main className="min-h-screen bg-mesh noise-overlay dot-pattern relative">
+        <main className="min-h-screen bg-mesh relative">
           {/* Animated warning stripes header */}
           <div className="warning-stripes-animated h-3 sticky top-0 z-50" />
 
           {/* Navigation */}
           <Navigation />
-
-          {/* Floating accent shapes */}
-          <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-            <div className="absolute top-20 -left-20 w-64 h-64 bg-[#facc15] opacity-10 rotate-12 animate-float" />
-            <div className="absolute top-1/2 -right-32 w-96 h-96 bg-[#ef4444] opacity-5 -rotate-12 animate-float stagger-2" />
-            <div className="absolute bottom-20 left-1/4 w-48 h-48 bg-[#0a0a0a] dark:bg-[#facc15] opacity-5 rotate-45 animate-float stagger-3" />
-          </div>
 
           {/* Page content */}
           <div className="relative z-10">

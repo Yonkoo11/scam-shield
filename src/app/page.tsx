@@ -9,9 +9,6 @@ import {
   ScanSearch,
   GraduationCap,
   Sparkles,
-  Brain,
-  TrendingUp,
-  ArrowRight,
 } from "lucide-react";
 
 export default function Home() {
@@ -21,8 +18,8 @@ export default function Home() {
           HERO SECTION
           ============================================ */}
       <div className="text-center mb-10">
-        <div className="inline-flex items-center gap-2 bg-[#ef4444] text-white px-4 py-2 font-bold text-xs uppercase tracking-widest mb-6 animate-shake brutal-shadow-sm">
-          <AlertTriangle className="w-4 h-4 animate-flash" />
+        <div className="inline-flex items-center gap-2 bg-[#ef4444] text-white px-4 py-2 font-bold text-xs uppercase tracking-widest mb-6 brutal-shadow-sm">
+          <AlertTriangle className="w-4 h-4" />
           Protect Yourself Now
         </div>
 
@@ -71,36 +68,33 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ============================================
-          HOW IT WORKS
-          ============================================ */}
+      {/* How It Works */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">How It Works</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          How it works
+        </p>
 
         <div className="grid grid-cols-3 gap-3">
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-10 h-10 bg-[#facc15] border-3 border-[#0a0a0a] dark:border-[#facc15] flex items-center justify-center mx-auto mb-3">
               <ClipboardPaste className="w-5 h-5 text-[#0a0a0a]" />
             </div>
-            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">1. PASTE</div>
+            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">1. Paste</div>
             <p className="text-[11px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Copy any suspicious message, email, or screenshot</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-10 h-10 bg-[#ef4444] border-3 border-[#0a0a0a] dark:border-[#ef4444] flex items-center justify-center mx-auto mb-3">
               <ScanSearch className="w-5 h-5 text-white" />
             </div>
-            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">2. SCAN</div>
+            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">2. Scan</div>
             <p className="text-[11px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Gemini AI analyzes for 50+ manipulation tactics</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-10 h-10 bg-[#22c55e] border-3 border-[#0a0a0a] dark:border-[#22c55e] flex items-center justify-center mx-auto mb-3">
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
-            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">3. LEARN</div>
+            <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">3. Learn</div>
             <p className="text-[11px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Get a verdict, understand the tactics, become immune</p>
           </div>
         </div>
@@ -114,36 +108,16 @@ export default function Home() {
           ============================================ */}
       <Analyzer />
 
-      {/* ============================================
-          CROSS-LINKS
-          ============================================ */}
-      <div className="mt-8 mb-4">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Explore More</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
-
-        <div className="grid grid-cols-3 gap-3">
-          <Link href="/learn" className="brutal-card brutal-card-yellow p-4 text-center brutal-shadow-sm group">
-            <Brain className="w-6 h-6 text-[#0a0a0a] mx-auto mb-2" />
-            <p className="font-display text-lg text-[#0a0a0a]">TEST YOUR SKILLS</p>
-            <p className="text-[10px] text-[#0a0a0a]/60 mb-2">Take the scam quiz</p>
-            <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link href="/trends" className="brutal-card brutal-card-dark p-4 text-center brutal-shadow-sm group">
-            <TrendingUp className="w-6 h-6 text-[#facc15] mx-auto mb-2" />
-            <p className="font-display text-lg text-white">LIVE TRENDS</p>
-            <p className="text-[10px] text-white/60 mb-2">See what&apos;s trending</p>
-            <ArrowRight className="w-4 h-4 mx-auto text-[#facc15] group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link href="/about" className="brutal-card p-4 text-center brutal-shadow-sm group">
-            <Sparkles className="w-6 h-6 text-[#4285F4] mx-auto mb-2" />
-            <p className="font-display text-lg text-[#0a0a0a] dark:text-[#fafafa]">ABOUT GEMINI</p>
-            <p className="text-[10px] text-[#525252] dark:text-[#a3a3a3] mb-2">How AI protects you</p>
-            <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] dark:text-[#facc15] group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
+      {/* Cross-links */}
+      <div className="mt-8 mb-4 text-center">
+        <div className="brutal-divider mb-4" />
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">
+          <Link href="/learn" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Take the quiz</Link>
+          {" · "}
+          <Link href="/trends" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">See trends</Link>
+          {" · "}
+          <Link href="/about" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">About Gemini</Link>
+        </p>
       </div>
     </div>
   );

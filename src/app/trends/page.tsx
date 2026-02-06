@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/page-header";
 import { LiveCounter } from "@/components/live-counter";
 import { ScamTrends } from "@/components/scam-trends";
 import { CommunityShield } from "@/components/community-shield";
-import { TrendingUp, Shield, Brain, ArrowRight, AlertTriangle, ShieldCheck } from "lucide-react";
+import { TrendingUp, AlertTriangle, ShieldCheck } from "lucide-react";
 
 const MONTHLY_DATA = [
   { month: "Sep", value: 62 },
@@ -73,11 +73,11 @@ export default function TrendsPage() {
           MONTHLY TREND CHART
           ============================================ */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">6-Month Trend</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <div className="brutal-divider mb-4" />
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#facc15]" />
+          6-month trend
+        </p>
 
         <div className="brutal-card brutal-card-dark p-5 brutal-shadow">
           <div className="flex items-end justify-between gap-2 h-40">
@@ -102,11 +102,10 @@ export default function TrendsPage() {
           PROTECTION TIPS
           ============================================ */}
       <div className="mb-8">
-        <div className="flex items-center justify-center gap-2 mb-5">
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-          <span className="font-display text-sm tracking-widest text-[#525252] dark:text-[#a3a3a3] uppercase">Protect Yourself</span>
-          <div className="h-[2px] w-8 bg-[#0a0a0a] dark:bg-[#333]" />
-        </div>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#525252] dark:text-[#a3a3a3] mb-4 flex items-center gap-2">
+          <span className="w-2 h-2 bg-[#22c55e]" />
+          Protect yourself
+        </p>
 
         <div className="space-y-3">
           {PROTECTION_TIPS.map((tip) => (
@@ -131,22 +130,14 @@ export default function TrendsPage() {
         </div>
       </div>
 
-      {/* ============================================
-          CTA SECTION
-          ============================================ */}
-      <div className="grid grid-cols-2 gap-3 mb-4">
-        <Link href="/" className="brutal-card brutal-card-dark p-5 text-center group brutal-shadow-sm">
-          <Shield className="w-6 h-6 text-[#facc15] mx-auto mb-2" />
-          <p className="font-display text-lg text-white mb-1">SCAN NOW</p>
-          <p className="text-[10px] text-white/60 mb-2">Got a suspicious message?</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#facc15] group-hover:translate-x-1 transition-transform" />
-        </Link>
-        <Link href="/learn" className="brutal-card brutal-card-yellow p-5 text-center group brutal-shadow-sm">
-          <Brain className="w-6 h-6 text-[#0a0a0a] mx-auto mb-2" />
-          <p className="font-display text-lg text-[#0a0a0a] mb-1">TAKE THE QUIZ</p>
-          <p className="text-[10px] text-[#0a0a0a]/60 mb-2">Test your detection skills</p>
-          <ArrowRight className="w-4 h-4 mx-auto text-[#0a0a0a] group-hover:translate-x-1 transition-transform" />
-        </Link>
+      {/* Links */}
+      <div className="text-center mb-4">
+        <div className="brutal-divider mb-4" />
+        <p className="text-sm text-[#525252] dark:text-[#a3a3a3]">
+          <Link href="/" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Scan a message</Link>
+          {" · "}
+          <Link href="/learn" className="underline font-bold text-[#0a0a0a] dark:text-[#fafafa] hover:text-[#ef4444] transition-colors">Take the quiz</Link>
+        </p>
       </div>
     </div>
   );
