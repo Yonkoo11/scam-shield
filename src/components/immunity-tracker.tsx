@@ -17,6 +17,14 @@ const ALL_SCAM_TYPES = [
   "Crypto Investment",
   "Delivery Scam",
   "Job Offer Scam",
+  "Business Email Compromise",
+  "Pig Butchering",
+  "QR Code (Quishing)",
+  "Deepfake/Voice Clone",
+  "AI-Generated Scam",
+  "SIM Swap",
+  "Hacked Account",
+  "Marketplace Overpayment",
 ];
 
 export function ImmunityTracker({ learnedTypes }: ImmunityTrackerProps) {

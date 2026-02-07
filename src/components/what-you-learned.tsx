@@ -49,6 +49,26 @@ const SCAM_TYPE_LESSONS: Record<string, { emoji: string; lesson: string; nextTim
     lesson: "If a stranger promises millions for minimal effort, they want your money. The 'fees' never stop, and the payout never comes.",
     nextTime: "Delete and block. No stranger is going to give you money.",
   },
+  "Business Email Compromise (BEC)": {
+    emoji: "💼",
+    lesson: "BEC attacks impersonate executives to exploit organizational trust. The FBI reported $2.9 billion in BEC losses in 2023 -- making it the costliest cybercrime type.",
+    nextTime: "Always verify wire transfer requests by calling the executive on a known direct number. Never change vendor payment details based solely on email.",
+  },
+  "Pig Butchering (Long-Con Investment Scam)": {
+    emoji: "💬",
+    lesson: "'Wrong number' texts that lead to investment pitches are pig butchering scams. Scammers invest weeks building trust before directing victims to fake trading platforms. The FBI reported $3.96 billion in crypto fraud losses in 2023.",
+    nextTime: "Never continue conversations with unknown 'wrong number' texters. No legitimate stranger will recommend investment platforms via text.",
+  },
+  "QR Code Scam (Quishing)": {
+    emoji: "📱",
+    lesson: "Scammers place fake QR codes over legitimate ones on parking meters, mail, and restaurant menus. The FTC issued a warning about this growing threat in December 2023.",
+    nextTime: "Check if a QR code is a sticker placed over another. Preview the URL before entering any information. Use official payment apps instead.",
+  },
+  "Phishing / Fake Document": {
+    emoji: "🖼️",
+    lesson: "Scammers use fake screenshots, invoices, and login pages to steal credentials. Visual spoofing is harder to detect than text-based scams.",
+    nextTime: "Never enter credentials on pages reached through links in messages. Type the URL directly or use the official app.",
+  },
   "default": {
     emoji: "🎓",
     lesson: "Scammers use urgency, fear, and authority to bypass your natural skepticism.",

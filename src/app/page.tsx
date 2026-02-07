@@ -88,7 +88,7 @@ export default function Home() {
               <ScanSearch className="w-5 h-5 text-white" />
             </div>
             <div className="font-display text-2xl text-[#0a0a0a] dark:text-[#fafafa] mb-1">2. Scan</div>
-            <p className="text-[11px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Gemini AI analyzes for 50+ manipulation tactics</p>
+            <p className="text-[11px] text-[#525252] dark:text-[#a3a3a3] leading-tight">Gemini AI detects 70+ scam signals and psychological tactics</p>
           </div>
           <div className="brutal-card p-4 text-center brutal-shadow-sm">
             <div className="w-10 h-10 bg-[#22c55e] border-3 border-[#0a0a0a] dark:border-[#22c55e] flex items-center justify-center mx-auto mb-3">

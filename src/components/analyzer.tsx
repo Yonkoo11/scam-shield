@@ -126,6 +126,62 @@ This matter requires IMMEDIATE attention. Local law enforcement has been notifie
 IRS Criminal Investigation Division
 Badge #IRS-4827`
   },
+  {
+    label: "CEO Wire Scam",
+    emoji: "💼",
+    text: `From: David Chen, CEO <d.chen@company-corp.net>
+Subject: Urgent - Confidential Wire Transfer
+
+Hi,
+
+I need you to process an urgent wire transfer today. We're closing an acquisition deal and this needs to happen before 3pm EST.
+
+Wire $47,500 to the following account:
+Bank: First National
+Routing: 021000089
+Account: 8827364519
+Beneficiary: Meridian Holdings LLC
+
+This is highly confidential - please don't discuss with anyone else on the team until the deal is announced. I'm in meetings all day so email is the best way to reach me.
+
+Thanks for handling this quickly. I'm counting on you.
+
+David Chen
+CEO, Company Corp`
+  },
+  {
+    label: "Wrong Number",
+    emoji: "💬",
+    text: `Hey! Is this Jessica? I'm so sorry if I have the wrong number lol
+
+Oh wait this isn't Jessica is it? I'm so sorry! My name is Mei, I was trying to reach an old friend.
+
+Well since we're already chatting, where are you from? I just moved to the area and don't know many people yet 😊
+
+I actually work in finance - I help people with investment portfolios. I've been using this amazing crypto trading platform that's been giving me incredible returns. Last month alone I made $12,000 from a $2,000 investment!
+
+Would you be interested in learning more? I could show you how the platform works. A lot of my friends have been making great passive income from it.`
+  },
+  {
+    label: "QR Parking",
+    emoji: "📱",
+    text: `⚠️ CITY PARKING VIOLATION NOTICE ⚠️
+
+Vehicle: [Your License Plate]
+Location: Main St & 5th Ave, Meter #4471
+Date: Today
+Fine: $85.00
+
+Your parking meter has expired. To avoid an additional $150 late penalty, scan the QR code below to pay immediately:
+
+[QR CODE]
+Or visit: pay-cityparking-fine.com/verify?id=4471
+
+Payment must be received within 24 hours or your fine will increase to $235.00 and may result in vehicle towing.
+
+City Parking Enforcement Division
+Ref: PKG-2024-44719`
+  },
 ];
 
 export function Analyzer() {
@@ -254,10 +310,11 @@ export function Analyzer() {
           <div className="text-center space-y-2">
             <h3 className="font-display text-4xl text-[#0a0a0a] dark:text-[#fafafa] tracking-wide">SCANNING</h3>
             <p className="text-sm text-[#525252] dark:text-[#a3a3a3] uppercase tracking-widest font-medium">
-              {scanProgress < 30 && "Analyzing patterns..."}
-              {scanProgress >= 30 && scanProgress < 60 && "Checking threat database..."}
-              {scanProgress >= 60 && scanProgress < 90 && "Detecting manipulation tactics..."}
-              {scanProgress >= 90 && "Generating threat report..."}
+              {scanProgress < 20 && "Analyzing linguistic patterns..."}
+              {scanProgress >= 20 && scanProgress < 40 && "Running forensic text analysis..."}
+              {scanProgress >= 40 && scanProgress < 60 && "Identifying psychological manipulation..."}
+              {scanProgress >= 60 && scanProgress < 80 && "Cross-referencing scam databases..."}
+              {scanProgress >= 80 && "Generating threat intelligence report..."}
             </p>
           </div>
 
